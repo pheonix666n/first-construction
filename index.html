@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUILDORA | Building Beyond Expectations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #171a18;
+  --dark2: #202521;
+  --gold: #d7ad70;
+  --cream: #f5f3ee;
+  --muted: #a9ada7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.container { width: min(1160px, 90%); margin: auto; }
+
+/* NAVIGATION */
+nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--dark);
+  color: white;
+  padding: 0 5%;
+}
+.logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 13px; color: #ddd; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--dark) !important;
+  padding: 13px 21px;
+  font-weight: 700;
+}
+.menu-btn {
+  display: none;
+  border: 0;
+  color: white;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(15,20,17,.94) 0%, rgba(15,20,17,.76) 47%, rgba(15,20,17,.12) 100%),
+    url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=85') center/cover;
+}
+.hero-content { max-width: 720px; padding: 100px 0; }
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 1.06;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  color: #d3d6d2;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 510px;
+  margin-bottom: 35px;
+}
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 16px 26px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .25s;
+}
+.btn:hover { background: white; transform: translateY(-3px); }
+.btn-outline {
+  border: 1px solid #ffffff80;
+  color: white;
+  padding: 15px 25px;
+  margin-left: 12px;
+  font-size: 13px;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* STATS */
+.stats {
+  background: var(--gold);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding: 33px 5%;
+  text-align: center;
+}
+.stat { border-right: 1px solid #80674355; }
+.stat:last-child { border: 0; }
+.stat h2 { font: 800 34px 'Manrope'; }
+.stat p { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; }
+
+/* SECTION BASE */
+section { padding: 105px 0; }
+.section-head { max-width: 620px; margin-bottom: 48px; }
+.section-head h2 {
+  font: 800 clamp(32px, 4vw, 48px)/1.15 'Manrope';
+  letter-spacing: -1.5px;
+  margin: 14px 0;
+}
+.section-head p { color: #737a74; line-height: 1.8; font-size: 14px; }
+.dark-label { color: #a57d48; }
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 75px;
+  align-items: center;
+}
+.about-image {
+  height: 490px;
+  background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=85') center/cover;
+  position: relative;
+}
+.image-note {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--gold);
+  padding: 24px 30px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.about-copy h2 {
+  font: 800 clamp(32px,4vw,46px)/1.15 'Manrope';
+  margin: 15px 0 22px;
+}
+.about-copy p { color: #707770; line-height: 1.9; font-size: 14px; margin-bottom: 18px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 27px 0; }
+.check { font-size: 13px; font-weight: 700; }
+.check span { color: #ae8148; margin-right: 7px; }
+
+/* SERVICES */
+.services { background: var(--dark); color: white; }
+.services .section-head p { color: var(--muted); }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+.service-card {
+  background: var(--dark2);
+  padding: 34px 28px;
+  border: 1px solid #ffffff12;
+  transition: .3s;
+}
+.service-card:hover { border-color: var(--gold); transform: translateY(-6px); }
+.service-icon { font-size: 32px; margin-bottom: 27px; }
+.service-card h3 { font: 700 19px 'Manrope'; margin-bottom: 14px; }
+.service-card p { color: #aeb3ad; line-height: 1.8; font-size: 13px; }
+
+/* PROJECTS */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+}
+.project {
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.project:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85'); }
+.project:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85'); }
+.project:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85'); }
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px 23px 22px;
+  color: white;
+  background: linear-gradient(transparent, #000d);
+}
+.project-info small { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+.project-info h3 { font: 700 19px 'Manrope'; margin-top: 7px; }
+
+/* WHY US */
+.why { background: #eae8e1; }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 35px; }
+.why-item h3 { font: 700 18px 'Manrope'; margin: 15px 0 10px; }
+.why-item p { color: #747a73; font-size: 13px; line-height: 1.8; }
+.why-number { font: 800 38px 'Manrope'; color: #b48b56; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  color: white;
+  background: linear-gradient(#171a18df,#171a18df),
+  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85') center/cover;
+  padding: 100px 20px;
+}
+.cta h2 { font: 800 clamp(32px,5vw,54px)/1.2 'Manrope'; max-width: 700px; margin: 15px auto; }
+.cta p { color: #c6cbc5; margin: 18px auto 30px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+.contact-details p { color: #747a73; line-height: 1.8; margin: 18px 0; font-size: 14px; }
+.contact-details h2 { font: 800 39px 'Manrope'; margin-bottom: 20px; }
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-form input, .contact-form textarea, .contact-form select {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #d9dbd4;
+  background: #fff;
+  font: 13px 'DM Sans';
+  outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: #ae8148; }
+.contact-form textarea { grid-column: 1/-1; height: 130px; resize: vertical; }
+.contact-form button { border: 0; cursor: pointer; justify-self: start; }
+.full { grid-column: 1/-1; }
+
+/* FOOTER */
+footer { background: var(--dark); color: white; padding: 35px 5%; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+footer p { color: #9da39c; font-size: 12px; }
+footer a { color: var(--gold); font-size: 12px; }
+
+@media(max-width: 800px) {
+  .nav-links {
+    display: none; position: absolute; top: 82px; left: 0;
+    width: 100%; background: var(--dark); padding: 25px 5%;
+    flex-direction: column; align-items: flex-start; z-index: 5;
+  }
+  .nav-links.open { display: flex; }
+  .menu-btn { display: block; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }
+  .about-image { height: 370px; }
+  .image-note { right: 0; }
+  .service-grid { grid-template-columns: 1fr 1fr; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 25px; }
+  .stat:nth-child(2) { border: 0; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+@media(max-width: 520px) {
+  .hero { min-height: 610px; }
+  .hero h1 { letter-spacing: -1.5px; }
+  .btn-outline { margin: 12px 0 0; }
+  .service-grid, .project-grid { grid-template-columns: 1fr; }
+  .project { height: 300px; }
+  .contact-form { grid-template-columns: 1fr; }
+  .contact-form textarea, .contact-form .full { grid-column: 1; }
+  section { padding: 75px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">BUILD<span>ORA.</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-cta">GET A QUOTE ↗</a>
+  </div>
+  <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Building the future since 2008</div>
+      <h1>We Build Your<br><span>Vision.</span> We Shape<br>The Future.</h1>
+      <p>From architectural dreams to exceptional spaces, we bring quality craftsmanship, innovative solutions, and lasting value to every project.</p>
+      <a href="#contact" class="btn">START YOUR PROJECT ↗</a>
+      <a href="#projects" class="btn-outline">EXPLORE PROJECTS</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><h2>15+</h2><p>Years Experience</p></div>
+  <div class="stat"><h2>250+</h2><p>Projects Completed</p></div>
+  <div class="stat"><h2>98%</h2><p>Client Satisfaction</p></div>
+  <div class="stat"><h2>40+</h2><p>Expert Professionals</p></div>
+</div>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <div class="image-note">BUILT ON TRUST. BUILT TO LAST.</div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow dark-label">WHO WE ARE</div>
+      <h2>Turning Great Ideas Into Lasting Structures.</h2>
+      <p>At BUILDORA, we believe every great structure starts with a great vision. Our team combines years of industry experience with modern construction techniques to deliver outstanding results.</p>
+      <p>We focus on quality, transparency, safety, and attention to detail — making your construction journey simple and rewarding.</p>
+      <div class="checks">
+        <div class="check"><span>✓</span> Quality Materials</div>
+        <div class="check"><span>✓</span> Expert Team</div>
+        <div class="check"><span>✓</span> On-Time Delivery</div>
+        <div class="check"><span>✓</span> Transparent Pricing</div>
+      </div>
+      <a href="#contact" class="btn">DISCOVER MORE ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">WHAT WE DO</div>
+      <h2>Our Expertise.<br>Your Next Big Project.</h2>
+      <p>Complete construction solutions, delivered with precision, passion, and professionalism.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">⌂</div>
+        <h3>Residential Construction</h3>
+        <p>Beautiful, functional homes designed around your lifestyle and built to stand the test of time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">▥</div>
+        <h3>Commercial Buildings</h3>
+        <p>Modern business spaces that combine thoughtful design, efficiency, and lasting quality.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚒</div>
+        <h3>Renovation & Remodeling</h3>
+        <p>Transform existing spaces into something extraordinary with our expert renovation services.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◈</div>
+        <h3>Architecture & Design</h3>
+        <p>Creative planning and detailed designs that turn ambitious ideas into buildable realities.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">▤</div>
+        <h3>Project Management</h3>
+        <p>Professional coordination and oversight to keep your project on track from start to finish.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⌑</div>
+        <h3>Interior Finishing</h3>
+        <p>Beautiful finishing touches, quality workmanship, and refined details for every space.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow dark-label">OUR PORTFOLIO</div>
+      <h2>Built With Purpose.<br>Designed To Inspire.</h2>
+      <p>A selection of projects showcasing our commitment to exceptional construction and thoughtful design.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project">
+        <div class="project-info"><small>Residential</small><h3>The Modern Residence</h3></div>
+      </div>
+      <div class="project">
+        <div class="project-info"><small>Commercial</small><h3>Urban Business Center</h3></div>
+      </div>
+      <div class="project">
+        <div class="project-info"><small>Interior</small><h3>Contemporary Living</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow dark-label">THE BUILDORA DIFFERENCE</div>
+      <h2>Why Clients Choose Us.</h2>
+      <p>We don't just build structures. We build relationships, confidence, and spaces that last.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-number">01</div><h3>Uncompromising Quality</h3><p>We pay attention to every detail, using trusted materials and proven construction methods.</p></div>
+      <div class="why-item"><div class="why-number">02</div><h3>Reliable Delivery</h3><p>Clear communication and careful planning keep your project moving in the right direction.</p></div>
+      <div class="why-item"><div class="why-number">03</div><h3>People First</h3><p>Your goals matter. We work closely with you to deliver a result that meets your expectations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="eyebrow">LET'S BUILD SOMETHING GREAT</div>
+  <h2>Your Vision Deserves The Best Foundation.</h2>
+  <p>Have a project in mind? Let's discuss how we can bring it to life.</p>
+  <a href="#contact" class="btn">GET YOUR FREE CONSULTATION ↗</a>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-details">
+      <div class="eyebrow dark-label">GET IN TOUCH</div>
+      <h2>Let's Talk About Your Project.</h2>
+      <p>Tell us what you're planning. Our team will get back to you to discuss the next steps.</p>
+      <p><strong>✉ Email</strong><br>hello@buildora.com</p>
+      <p><strong>☎ Phone</strong><br>+49 123 456 7890</p>
+      <p><strong>⌖ Location</strong><br>Your City, Your Country</p>
+    </div>
+    <form class="contact-form" action="mailto:hello@buildora.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+      <select name="service">
+        <option value="">Select a Service</option>
+        <option>Residential Construction</option>
+        <option>Commercial Construction</option>
+        <option>Renovation</option>
+        <option>Architecture & Design</option>
+        <option>Other</option>
+      </select>
+      <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit" class="btn full">SEND YOUR MESSAGE ↗</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a class="logo" href="#">BUILD<span>ORA.</span></a>
+    <p>© 2026 BUILDORA. All rights reserved.</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
